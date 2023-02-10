@@ -1,0 +1,27 @@
+<app-code [code]="code"></app-code>
+
+<!-- Je crée le lien(enfant & parent) dans html de parent. Donc avec la valise enfant(<app-code>) et le [attribut binding] = valeur. -->
+
+<!-- [code] : la valeur qui sera passé par le parent. -->
+<!-- [code] : nom de input de l'enfant(code.ts). -->
+<!-- "code" : nom de variable vide qui initialise, venant de parent(app.ts). -->
+
+<!-- =============================================== -->
+<div>
+  <app-key *ngFor="let singleKey of keyboard" [keyValue]="singleKey" (onClickKey)="updateCode($event)"></app-key>
+</div>
+
+<!-- dans div, on bouclera le tableau sur le component key qui est créé pour afficher la valeur des bouttons -->
+
+<!-- [keyValue] : nom de input de enfant. -->
+<!-- grâce à l'input qui est demandé par l'enfant (qui est keyvalue), on va lui passer la valeur de single key. -->
+
+<!-- =============================================== -->
+
+<!-- Créer le lien entre chaques outputs et sa fontion correspondante du parent. -->
+<!-- Donc on a 3 liens à faire, à app.html -->
+<!-- 	On a un output qui s'appelle oncheck qui appelle check(),
+	Onclickremove qui appelle remove(),
+  OnclickReset qui appelle reset() -->
+  
+<app-actions (onClickCheck)="check()" (onClickRemove)="remove()" (onClickReset)="reset()"></app-actions>
